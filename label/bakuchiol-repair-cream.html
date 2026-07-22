@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jannah Skin — Bakuchiol Repair Face Cream</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF6EF;
+    --cream-dark: #F0E8D8;
+    --gold: #C8A84B;
+    --gold-light: #E8D49A;
+    --gold-dark: #8B6E1E;
+    --earth: #3D2B1F;
+    --earth-mid: #6B4C3B;
+    --white: #FFFFFF;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Jost', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--earth);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* LANGUAGE SWITCHER */
+  .lang-bar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.85rem 1rem;
+    background: rgba(250, 246, 239, 0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 0.5px solid rgba(200, 168, 75, 0.35);
+  }
+
+  .lang-btn {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--earth-mid);
+    background: transparent;
+    border: 1px solid rgba(200, 168, 75, 0.4);
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+
+  .lang-btn.active {
+    background: var(--earth);
+    border-color: var(--earth);
+    color: var(--cream);
+  }
+
+  /* CARD */
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 2.2rem 1.25rem 4rem;
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid rgba(200, 168, 75, 0.28);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .lang-section { display: none; }
+  .lang-section.active { display: block; }
+
+  /* HEADER */
+  .label-header {
+    text-align: center;
+    padding: 2.4rem 1.75rem 1.9rem;
+    border-bottom: 1px dashed rgba(200, 168, 75, 0.5);
+  }
+
+  .label-icon {
+    width: 46px;
+    height: auto;
+    margin: 0 auto 0.9rem;
+    display: block;
+  }
+
+  .label-brand {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    letter-spacing: 0.32em;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    margin: 0 0 0.6rem;
+  }
+
+  .label-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.9rem;
+    line-height: 1.15;
+    color: var(--earth);
+    margin: 0 0 0.35rem;
+  }
+
+  .label-subtitle {
+    font-size: 0.92rem;
+    color: var(--earth-mid);
+    margin: 0 0 1.1rem;
+  }
+
+  .label-actives {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+    color: var(--gold-dark);
+    padding-top: 0.9rem;
+    border-top: 0.5px solid rgba(200, 168, 75, 0.3);
+  }
+
+  .label-volume {
+    display: inline-block;
+    margin-top: 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--earth-mid);
+    border: 1px solid rgba(200, 168, 75, 0.4);
+    border-radius: 999px;
+    padding: 0.25rem 0.9rem;
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 1.9rem 1.75rem;
+    border-bottom: 1px dashed rgba(200, 168, 75, 0.35);
+  }
+
+  .section:last-of-type { border-bottom: none; }
+
+  .section-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.66rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin: 0 0 0.9rem;
+  }
+
+  .section-body {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--earth);
+    margin: 0;
+  }
+
+  /* BENEFITS */
+  .benefit-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .benefit-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: 0.93rem;
+    line-height: 1.5;
+  }
+
+  .benefit-check {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--cream-dark);
+    color: var(--gold-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    margin-top: 0.1rem;
+  }
+
+  /* INGREDIENTS */
+  .ingredient-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+
+  .ingredient-item {
+    padding-left: 1rem;
+    border-left: 2px solid var(--gold-light);
+  }
+
+  .ingredient-name {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--earth);
+    margin: 0 0 0.2rem;
+  }
+
+  .ingredient-desc {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--earth-mid);
+    margin: 0;
+  }
+
+  /* NUMBERED STEPS (directions / patch test) */
+  .steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: step;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .steps li {
+    counter-increment: step;
+    display: flex;
+    gap: 0.85rem;
+    font-size: 0.93rem;
+    line-height: 1.55;
+  }
+
+  .steps li::before {
+    content: counter(step);
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--earth);
+    color: var(--cream);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* PRECAUTIONS */
+  .precaution-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .precaution-list li {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--earth-mid);
+    padding-left: 0.9rem;
+    border-left: 1px solid rgba(200, 168, 75, 0.5);
+  }
+
+  /* INCI BOX */
+  .inci-box {
+    background: var(--cream-dark);
+    border: 1px solid rgba(200, 168, 75, 0.3);
+    border-radius: 2px;
+    padding: 1.1rem 1.15rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    line-height: 1.7;
+    color: var(--earth-mid);
+  }
+
+  /* PRODUCT INFO TABLE */
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+
+  .info-table tr {
+    border-bottom: 0.5px solid rgba(200, 168, 75, 0.25);
+  }
+
+  .info-table tr:last-child { border-bottom: none; }
+
+  .info-table td {
+    padding: 0.55rem 0;
+    vertical-align: top;
+  }
+
+  .info-table td:first-child {
+    color: var(--earth-mid);
+    width: 46%;
+    padding-right: 0.75rem;
+  }
+
+  .info-table td:last-child {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--earth);
+    text-align: right;
+  }
+
+  /* MANUFACTURER + CERT */
+  .mfg-block {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--earth);
+  }
+
+  .mfg-block strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .cert-badges {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 1.1rem;
+  }
+
+  .cert-badge {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    border: 1px solid var(--gold);
+    border-radius: 999px;
+    padding: 0.35rem 0.9rem;
+  }
+
+  .cert-note {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--earth-mid);
+    margin-top: 0.9rem;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2.2rem 1.5rem 0;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--earth-mid);
+    letter-spacing: 0.08em;
+  }
+
+  .footer-tagline {
+    font-size: 0.75rem;
+    color: var(--gold-dark);
+    margin-top: 0.3rem;
+  }
+
+  @media (max-width: 480px) {
+    .label-title { font-size: 1.6rem; }
+    .section { padding: 1.6rem 1.25rem; }
+    .label-header { padding: 2rem 1.25rem 1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <button class="lang-btn active" data-lang="kk">Қазақша</button>
+  <button class="lang-btn" data-lang="ru">Русский</button>
+  <button class="lang-btn" data-lang="en">English</button>
+</div>
+
+<div class="wrap">
+  <div class="card">
+
+    <!-- ============ KAZAKH ============ -->
+    <div class="lang-section active" data-lang="kk">
+
+      <div class="label-header">
+        <img src="../assets/jannah-logo-icon.png" alt="Jannah Skin" class="label-icon">
+        <p class="label-brand">Jannah Skin</p>
+        <h1 class="label-title">Bakuchiol Repair Face Cream</h1>
+        <p class="label-subtitle">Қалпына келтіруші бет кремі</p>
+        <p class="label-actives">Бакучиол · Жожоба майы · Арган майы · Итмұрын майы</p>
+        <span class="label-volume">Таза көлемі: 50 мл</span>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Өнім туралы</p>
+        <p class="section-body">Бакучиол, жожоба майы, арган майы және итмұрын майымен байытылған жеңіл құрылымды бет кремі. Теріні ылғалдандыруға, қоректендіруге және оның табиғи қорғаныс тосқауылын қолдауға көмектеседі. Тұрақты қолданған кезде терінің жұмсақ, тегіс әрі серпімді көрінуіне ықпал етіп, табиғи жарқырауын қолдайды.</p>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Негізгі қасиеттері</p>
+        <ul class="benefit-list">
+          <li><span class="benefit-check">✓</span>Теріні ылғалдандырады</li>
+          <li><span class="benefit-check">✓</span>Теріні жұмсартып, қоректендіреді</li>
+          <li><span class="benefit-check">✓</span>Терінің табиғи қорғаныс тосқауылын қолдайды</li>
+          <li><span class="benefit-check">✓</span>Әжімдер мен майда сызықтардың көрінуін азайтуға көмектеседі</li>
+          <li><span class="benefit-check">✓</span>Терінің серпімділігін сақтауға ықпал етеді</li>
+          <li><span class="benefit-check">✓</span>Тері реңінің біркелкі әрі жарқын көрінуін қолдайды</li>
+          <li><span class="benefit-check">✓</span>Кеуектердің көрінуін азайтуға көмектеседі</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Негізгі ингредиенттер</p>
+        <div class="ingredient-grid">
+          <div class="ingredient-item">
+            <p class="ingredient-name">Бакучиол</p>
+            <p class="ingredient-desc">Өсімдік тектес косметикалық белсенді ингредиент. Терінің тегіс және серпімді көрінуін қолдап, қартаю белгілерінің көрінуін азайтуға көмектеседі.</p>
+          </div>
+          <div class="ingredient-item">
+            <p class="ingredient-name">Жожоба майы</p>
+            <p class="ingredient-desc">Теріні жұмсартып, ылғалдың жоғалуын азайтуға және тері тосқауылын қолдауға көмектеседі.</p>
+          </div>
+          <div class="ingredient-item">
+            <p class="ingredient-name">Арган майы</p>
+            <p class="ingredient-desc">Май қышқылдары мен антиоксиданттарға бай. Теріні қоректендіріп, жұмсақтығы мен серпімділігін сақтауға ықпал етеді.</p>
+          </div>
+          <div class="ingredient-item">
+            <p class="ingredient-name">Итмұрын майы</p>
+            <p class="ingredient-desc">Теріні қоректендіріп, оның тегіс және жарқын көрінуін қолдайды.</p>
+          </div>
+          <div class="ingredient-item">
+            <p class="ingredient-name">Гидролизденген күріш протеині</p>
+            <p class="ingredient-desc">Терінің ылғалданған және жұмсақ күйін сақтауға көмектеседі.</p>
+          </div>
+          <div class="ingredient-item">
+            <p class="ingredient-name">Ақ тал қабығының сығындысы</p>
+            <p class="ingredient-desc">Тері бетінің тегіс көрінуіне және кеуектердің байқалуын азайтуға көмектеседі.</p>
+          </div>
+          <div class="ingredient-item">
+            <p class="ingredient-name">Раушан, лаванда және жасмин</p>
+            <p class="ingredient-desc">Өнімге нәзік табиғи хош иіс береді.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Кімге арналған?</p>
+        <p class="section-body">Барлық тері түрлеріне арналған. Құрамында эфир майлары мен өсімдік сығындылары болғандықтан, сезімтал теріге қолданар алдында терінің шағын аймағында сынақ жүргізу ұсынылады.</p>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Қолдану тәсілі</p>
+        <ol class="steps">
+          <li>Таңертең және кешке тазартылған бет пен мойын терісіне жеткілікті мөлшерде жағыңыз.</li>
+          <li>Кремді теріге жеңіл массаж қозғалыстарымен толық сіңгенше таратыңыз.</li>
+          <li>Күндіз кең спектрлі күннен қорғайтын құрал қолдану ұсынылады.</li>
+        </ol>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Сезімталдыққа сынақ</p>
+        <ol class="steps">
+          <li>Алғаш қолданар алдында өнімнің аз мөлшерін білектің ішкі жағына немесе құлақтың артына жағыңыз.</li>
+          <li>24 сағат ішінде айқын қызару, қышу, ісіну немесе ашыту пайда болмаса, өнімді бетке қолдануға болады.</li>
+        </ol>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Сақтық шаралары</p>
+        <ul class="precaution-list">
+          <li>Тек сыртқа қолдануға арналған</li>
+          <li>Көзге тигізбеңіз</li>
+          <li>Көзге тиген жағдайда мол сумен шайыңыз</li>
+          <li>Зақымданған немесе қатты тітіркенген теріге қолданбаңыз</li>
+          <li>Тітіркену, қызару немесе жайсыздық пайда болса, қолдануды тоқтатыңыз</li>
+          <li>Балалардың қолы жетпейтін жерде сақтаңыз</li>
+          <li>Құрамындағы ингредиенттердің біріне жеке сезімталдық болған жағдайда қолданбаңыз</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Сақтау шарттары</p>
+        <p class="section-body">25°C-тан аспайтын температурада, құрғақ жерде сақтаңыз. Тікелей күн сәулесінен, жылу мен ылғалдан қорғаңыз. Қолданғаннан кейін қаптаманы мықтап жабыңыз.</p>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Құрамы — INCI</p>
+        <div class="inci-box">Aqua, Simmondsia Chinensis (Jojoba) Seed Oil, Argania Spinosa Kernel Oil, Octyldodecanol, Hydrogenated Coco-Glycerides, Helianthus Annuus Seed Extract, Ethylhexyl Olivate, Sodium Acrylates Copolymer, Polyglyceryl-4 Oleate, Citrus Reticulata Peel Extract, Butylene Glycol, Cynara Scolymus Leaf Extract, Glycerin, Hydrolyzed Rice Protein, Rosa Canina Fruit Oil, Propanediol, Salix Alba Bark Extract, Bakuchiol, Tocopherol, Rosa Damascena Flower Oil, Lavandula Angustifolia (Lavender) Oil, Jasminum Grandiflorum (Jasmine) Flower Extract.</div>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Өнім туралы мәліметтер</p>
+        <table class="info-table">
+          <tr><td>Өнім атауы</td><td>Bakuchiol Repair Face Cream</td></tr>
+          <tr><td>Өнім түрі</td><td>Қалпына келтіруші бет кремі</td></tr>
+          <tr><td>Таза көлемі</td><td>50 мл</td></tr>
+          <tr><td>Партия нөмірі</td><td>JS-2026-07</td></tr>
+          <tr><td>Өндірілген күні</td><td>30.07.2026</td></tr>
+          <tr><td>Жарамдылық мерзімі</td><td>30.07.2027</td></tr>
+          <tr><td>Ашылғаннан кейін пайдалану мерзімі</td><td>12 ай</td></tr>
+          <tr><td>Шығарылған елі</td><td>Тайланд</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Өндіруші</p>
+        <div class="mfg-block">
+          <strong>Jannah Skin</strong>
+          Chiang Mai, Thailand<br>
+          Телефон: +66 97 959 8709<br>
+          E-mail: zhanatmirzash@gmail.com
+        </div>
+        <div class="cert-badges">
+          <span class="cert-badge">Halal</span>
+          <span class="cert-badge">Vegan</span>
+        </div>
+        <p class="cert-note">Өнім халал және веган талаптарына сәйкес сертификатталған ингредиенттерден жасалған.</p>
+      </div>
+
+    </div>
+
+    <!-- ============ RUSSIAN ============ -->
+    <div class="lang-section" data-lang="ru">
+
+      <div class="label-header">
+        <img src="../assets/jannah-logo-icon.png" alt="Jannah Skin" class="label-icon">
+        <p class="label-brand">Jannah Skin</p>
+        <h1 class="label-title">Bakuchiol Repair Face Cream</h1>
+        <p class="label-subtitle">Восстанавливающий крем для лица</p>
+        <p class="label-actives">Бакучиол · Масло жожоба · Аргановое масло · Масло шиповника</p>
+        <span class="label-volume">Номинальный объём: 50 мл</span>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">О продукте</p>
+        <p class="section-body">Лёгкий крем для лица, обогащённый бакучиолом, маслами жожоба, арганы и шиповника. Способствует увлажнению и питанию кожи, а также поддержанию её естественного защитного барьера. При регулярном применении помогает коже выглядеть более мягкой, гладкой, упругой и сияющей.</p>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Основные свойства</p>
+        <ul class="benefit-list">
+          <li><span class="benefit-check">✓</span>Увлажняет кожу</li>
+          <li><span class="benefit-check">✓</span>Смягчает и питает кожу</li>
+          <li><span class="benefit-check">✓</span>Поддерживает естественный защитный барьер</li>
+          <li><span class="benefit-check">✓</span>Помогает уменьшить видимость мелких линий и морщин</li>
+          <li><span class="benefit-check">✓</span>Способствует сохранению упругости кожи</li>
+          <li><span class="benefit-check">✓</span>Поддерживает более ровный и сияющий тон кожи</li>
+          <li><span class="benefit-check">✓</span>Помогает уменьшить видимость пор</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Ключевые ингредиенты</p>
+        <div class="ingredient-grid">
+          <div class="ingredient-item">
+            <p class="ingredient-name">Бакучиол</p>
+            <p class="ingredient-desc">Косметический актив растительного происхождения. Помогает поддерживать гладкость и упругость кожи, а также уменьшать видимость признаков возрастных изменений.</p>
+          </div>
+          <div class="ingredient-item">
+            <p class="ingredient-name">Масло жожоба</p>
+            <p class="ingredient-desc">Смягчает кожу, способствует уменьшению потери влаги и поддерживает защитный барьер.</p>
+          </div>
+          <div class="ingredient-item">
+            <p class="ingredient-name">Аргановое масло</p>
+            <p class="ingredient-desc">Богато жирными кислотами и антиоксидантами. Питает кожу и помогает сохранять её мягкость и эластичность.</p>
+          </div>
+          <div class="ingredient-item">
+            <p class="ingredient-name">Масло шиповника</p>
+            <p class="ingredient-desc">Питает кожу и поддерживает её гладкий и сияющий вид.</p>
+          </div>
+          <div class="ingredient-item">
+            <p class="ingredient-name">Гидролизованный рисовый протеин</p>
+            <p class="ingredient-desc">Помогает сохранять кожу увлажнённой, мягкой и ухоженной.</p>
+          </div>
+          <div class="ingredient-item">
+            <p class="ingredient-name">Экстракт коры белой ивы</p>
+            <p class="ingredient-desc">Способствует более гладкому виду поверхности кожи и уменьшению видимости пор.</p>
+          </div>
+          <div class="ingredient-item">
+            <p class="ingredient-name">Роза, лаванда и жасмин</p>
+            <p class="ingredient-desc">Придают продукту нежный натуральный аромат.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Для кого подходит?</p>
+        <p class="section-body">Подходит для всех типов кожи. Из-за содержания эфирных масел и растительных экстрактов перед использованием на чувствительной коже рекомендуется провести тест на небольшом участке.</p>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Способ применения</p>
+        <ol class="steps">
+          <li>Наносите достаточное количество крема утром и вечером на очищенную кожу лица и шеи.</li>
+          <li>Распределите лёгкими массажными движениями до полного впитывания.</li>
+          <li>В дневное время рекомендуется использовать солнцезащитное средство широкого спектра действия.</li>
+        </ol>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Тест на чувствительность</p>
+        <ol class="steps">
+          <li>Перед первым применением нанесите небольшое количество продукта на внутреннюю сторону предплечья или за ухом.</li>
+          <li>Если в течение 24 часов не появились выраженное покраснение, зуд, отёк или жжение, продукт можно использовать на коже лица.</li>
+        </ol>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Меры предосторожности</p>
+        <ul class="precaution-list">
+          <li>Только для наружного применения</li>
+          <li>Избегайте попадания в глаза</li>
+          <li>При попадании в глаза тщательно промойте водой</li>
+          <li>Не наносите на повреждённую или сильно раздражённую кожу</li>
+          <li>При появлении раздражения, покраснения или дискомфорта прекратите использование</li>
+          <li>Храните в недоступном для детей месте</li>
+          <li>Не используйте при индивидуальной непереносимости компонентов</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Условия хранения</p>
+        <p class="section-body">Хранить при температуре не выше 25°C в сухом месте. Беречь от прямых солнечных лучей, источников тепла и повышенной влажности. После использования плотно закрывать упаковку.</p>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Состав — INCI</p>
+        <div class="inci-box">Aqua, Simmondsia Chinensis (Jojoba) Seed Oil, Argania Spinosa Kernel Oil, Octyldodecanol, Hydrogenated Coco-Glycerides, Helianthus Annuus Seed Extract, Ethylhexyl Olivate, Sodium Acrylates Copolymer, Polyglyceryl-4 Oleate, Citrus Reticulata Peel Extract, Butylene Glycol, Cynara Scolymus Leaf Extract, Glycerin, Hydrolyzed Rice Protein, Rosa Canina Fruit Oil, Propanediol, Salix Alba Bark Extract, Bakuchiol, Tocopherol, Rosa Damascena Flower Oil, Lavandula Angustifolia (Lavender) Oil, Jasminum Grandiflorum (Jasmine) Flower Extract.</div>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Информация о продукте</p>
+        <table class="info-table">
+          <tr><td>Наименование</td><td>Bakuchiol Repair Face Cream</td></tr>
+          <tr><td>Тип продукта</td><td>Восстанавливающий крем для лица</td></tr>
+          <tr><td>Номинальный объём</td><td>50 мл</td></tr>
+          <tr><td>Номер партии</td><td>JS-2026-07</td></tr>
+          <tr><td>Дата изготовления</td><td>30.07.2026</td></tr>
+          <tr><td>Годен до</td><td>30.07.2027</td></tr>
+          <tr><td>Срок после вскрытия</td><td>12 месяцев</td></tr>
+          <tr><td>Страна производства</td><td>Таиланд</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Производитель</p>
+        <div class="mfg-block">
+          <strong>Jannah Skin</strong>
+          Chiang Mai, Thailand<br>
+          Телефон: +66 97 959 8709<br>
+          E-mail: zhanatmirzash@gmail.com
+        </div>
+        <div class="cert-badges">
+          <span class="cert-badge">Halal</span>
+          <span class="cert-badge">Vegan</span>
+        </div>
+        <p class="cert-note">Продукт изготовлен с использованием ингредиентов, сертифицированных в соответствии с требованиями halal и vegan.</p>
+      </div>
+
+    </div>
+
+    <!-- ============ ENGLISH ============ -->
+    <div class="lang-section" data-lang="en">
+
+      <div class="label-header">
+        <img src="../assets/jannah-logo-icon.png" alt="Jannah Skin" class="label-icon">
+        <p class="label-brand">Jannah Skin</p>
+        <h1 class="label-title">Bakuchiol Repair Face Cream</h1>
+        <p class="label-subtitle">Restorative Facial Cream</p>
+        <p class="label-actives">Bakuchiol · Jojoba Oil · Argan Oil · Rosehip Oil</p>
+        <span class="label-volume">Net volume: 50 ml</span>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">About the product</p>
+        <p class="section-body">A lightweight facial cream enriched with bakuchiol, jojoba oil, argan oil and rosehip oil. It helps moisturise and nourish the skin while supporting its natural protective barrier. With regular use, the formula helps the skin appear softer, smoother, firmer and naturally radiant.</p>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Key benefits</p>
+        <ul class="benefit-list">
+          <li><span class="benefit-check">✓</span>Moisturises the skin</li>
+          <li><span class="benefit-check">✓</span>Softens and nourishes</li>
+          <li><span class="benefit-check">✓</span>Supports the skin's natural protective barrier</li>
+          <li><span class="benefit-check">✓</span>Helps reduce the appearance of fine lines and wrinkles</li>
+          <li><span class="benefit-check">✓</span>Helps maintain the appearance of skin firmness</li>
+          <li><span class="benefit-check">✓</span>Supports a more even and radiant-looking complexion</li>
+          <li><span class="benefit-check">✓</span>Helps minimise the appearance of pores</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Key ingredients</p>
+        <div class="ingredient-grid">
+          <div class="ingredient-item">
+            <p class="ingredient-name">Bakuchiol</p>
+            <p class="ingredient-desc">A plant-derived cosmetic active that helps support smoother and firmer-looking skin and reduce the visible signs of ageing.</p>
+          </div>
+          <div class="ingredient-item">
+            <p class="ingredient-name">Jojoba oil</p>
+            <p class="ingredient-desc">Helps soften the skin, reduce moisture loss and support the skin barrier.</p>
+          </div>
+          <div class="ingredient-item">
+            <p class="ingredient-name">Argan oil</p>
+            <p class="ingredient-desc">Rich in fatty acids and antioxidants. It nourishes the skin and helps maintain softness and suppleness.</p>
+          </div>
+          <div class="ingredient-item">
+            <p class="ingredient-name">Rosehip oil</p>
+            <p class="ingredient-desc">Nourishes the skin and supports a smoother, more radiant appearance.</p>
+          </div>
+          <div class="ingredient-item">
+            <p class="ingredient-name">Hydrolysed rice protein</p>
+            <p class="ingredient-desc">Helps maintain a moisturised, soft and conditioned skin feel.</p>
+          </div>
+          <div class="ingredient-item">
+            <p class="ingredient-name">White willow bark extract</p>
+            <p class="ingredient-desc">Helps support a smoother-looking skin surface and minimise the appearance of pores.</p>
+          </div>
+          <div class="ingredient-item">
+            <p class="ingredient-name">Rose, lavender and jasmine</p>
+            <p class="ingredient-desc">Provide the product with a delicate natural fragrance.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Who is it for?</p>
+        <p class="section-body">Suitable for all skin types. Because the formula contains essential oils and botanical extracts, a patch test is recommended before use on sensitive skin.</p>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Directions</p>
+        <ol class="steps">
+          <li>Apply an appropriate amount to cleansed face and neck in the morning and evening.</li>
+          <li>Massage gently until fully absorbed.</li>
+          <li>During the day, the use of a broad-spectrum sunscreen is recommended.</li>
+        </ol>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Patch test</p>
+        <ol class="steps">
+          <li>Before first use, apply a small amount to the inner forearm or behind the ear.</li>
+          <li>The product may be used on the face if no significant redness, itching, swelling or burning develops within 24 hours.</li>
+        </ol>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Precautions</p>
+        <ul class="precaution-list">
+          <li>For external use only</li>
+          <li>Avoid direct contact with the eyes</li>
+          <li>If contact occurs, rinse thoroughly with water</li>
+          <li>Do not apply to damaged or severely irritated skin</li>
+          <li>Discontinue use if irritation, redness or discomfort occurs</li>
+          <li>Keep out of reach of children</li>
+          <li>Do not use in case of known sensitivity to any ingredient</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Storage</p>
+        <p class="section-body">Store in a dry place below 25°C. Protect from direct sunlight, heat and excessive humidity. Close the packaging securely after use.</p>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Ingredients — INCI</p>
+        <div class="inci-box">Aqua, Simmondsia Chinensis (Jojoba) Seed Oil, Argania Spinosa Kernel Oil, Octyldodecanol, Hydrogenated Coco-Glycerides, Helianthus Annuus Seed Extract, Ethylhexyl Olivate, Sodium Acrylates Copolymer, Polyglyceryl-4 Oleate, Citrus Reticulata Peel Extract, Butylene Glycol, Cynara Scolymus Leaf Extract, Glycerin, Hydrolyzed Rice Protein, Rosa Canina Fruit Oil, Propanediol, Salix Alba Bark Extract, Bakuchiol, Tocopherol, Rosa Damascena Flower Oil, Lavandula Angustifolia (Lavender) Oil, Jasminum Grandiflorum (Jasmine) Flower Extract.</div>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Product information</p>
+        <table class="info-table">
+          <tr><td>Product name</td><td>Bakuchiol Repair Face Cream</td></tr>
+          <tr><td>Product type</td><td>Restorative facial cream</td></tr>
+          <tr><td>Net volume</td><td>50 ml</td></tr>
+          <tr><td>Batch number</td><td>JS-2026-07</td></tr>
+          <tr><td>Date of manufacture</td><td>30 July 2026</td></tr>
+          <tr><td>Expiry date</td><td>30 July 2027</td></tr>
+          <tr><td>Period after opening</td><td>12 months</td></tr>
+          <tr><td>Country of origin</td><td>Thailand</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <p class="section-eyebrow">Manufacturer</p>
+        <div class="mfg-block">
+          <strong>Jannah Skin</strong>
+          Chiang Mai, Thailand<br>
+          Telephone: +66 97 959 8709<br>
+          E-mail: zhanatmirzash@gmail.com
+        </div>
+        <div class="cert-badges">
+          <span class="cert-badge">Halal</span>
+          <span class="cert-badge">Vegan</span>
+        </div>
+        <p class="cert-note">The product is formulated using ingredients certified as compliant with halal and vegan requirements.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    <p class="footer-logo">Jannah Skin</p>
+    <p class="footer-tagline">Zhanat means heaven. Your skin deserves it.</p>
+  </footer>
+</div>
+
+<script>
+  const langButtons = document.querySelectorAll('.lang-btn');
+  const langSections = document.querySelectorAll('.lang-section');
+
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+      langButtons.forEach(b => b.classList.toggle('active', b === btn));
+      langSections.forEach(s => s.classList.toggle('active', s.dataset.lang === lang));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
