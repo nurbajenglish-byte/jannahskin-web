@@ -482,6 +482,116 @@
     margin-bottom: 0.15rem;
   }
 
+  /* SHOP */
+  .shop {
+    padding: 6rem 4rem;
+    background: var(--white);
+  }
+
+  .shop-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.75rem;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .shop-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--cream);
+    border: 1px solid rgba(200, 168, 75, 0.22);
+    border-radius: 3px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--earth);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .shop-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(61, 43, 31, 0.12);
+  }
+
+  .shop-card-image {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+  }
+
+  .shop-card-body {
+    padding: 1.25rem 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .shop-card-name {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0 0 0.4rem;
+  }
+
+  .shop-card-desc {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--earth-mid);
+    margin: 0 0 1.1rem;
+    flex-grow: 1;
+  }
+
+  .shop-card-btn {
+    display: inline-block;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--earth);
+    border: 1px solid var(--gold);
+    border-radius: 999px;
+    padding: 0.6rem 1rem;
+    transition: all 0.25s;
+  }
+
+  .shop-card:hover .shop-card-btn {
+    background: var(--earth);
+    color: var(--cream);
+    border-color: var(--earth);
+  }
+
+  .shop-card.bundle {
+    border: 1.5px solid var(--gold);
+    position: relative;
+  }
+
+  .shop-card.bundle::before {
+    content: "Best Value";
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    background: var(--earth);
+    color: var(--cream);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    z-index: 2;
+  }
+
+  @media (max-width: 480px) {
+    .shop { padding: 4rem 1.5rem; }
+  }
+
   /* PRODUCTS */
   .products {
     padding: 7rem 4rem;
@@ -857,6 +967,7 @@
 <nav>
   <a href="#" class="nav-logo"><img src="assets/jannah-logo-icon.png" alt="Jannah Skin" class="nav-logo-icon">Jannah Skin</a>
   <ul class="nav-links">
+    <li><a href="#shop">Shop</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#products">The Book</a></li>
     <li><a href="#founder">Founder</a></li>
@@ -929,6 +1040,81 @@
     <span class="marquee-item">Skin That Thrives</span>
   </div>
 </div>
+
+<!-- SHOP -->
+<section class="shop" id="shop">
+  <div class="shop-header">
+    <p class="section-eyebrow" style="justify-content: center;">The collection</p>
+    <h2 class="section-title" style="font-size: clamp(2rem, 3vw, 3rem); margin-bottom: 0.5rem;">Shop Jannah Skin</h2>
+    <p style="color: var(--earth-mid); max-width: 480px; margin: 0 auto;">Six formulas for face and eyes, or the complete ritual in one set.</p>
+  </div>
+  <div class="shop-grid">
+
+    <a href="https://whop.com/checkout/plan_gUUw3uu2elROf" target="_blank" rel="noopener" class="shop-card">
+      <img src="assets/products/face-cream.jpg" alt="Bakuchiol Repair Face Cream" class="shop-card-image">
+      <div class="shop-card-body">
+        <p class="shop-card-name">Bakuchiol Repair Face Cream</p>
+        <p class="shop-card-desc">All-in-one face cream with bakuchiol, jojoba, argan &amp; rosehip oil. 50 ml.</p>
+        <span class="shop-card-btn">Buy Now</span>
+      </div>
+    </a>
+
+    <a href="https://whop.com/checkout/plan_tI33N2Fcixxb0" target="_blank" rel="noopener" class="shop-card">
+      <img src="assets/products/daily-glow-serum.jpg" alt="Daily Glow Serum" class="shop-card-image">
+      <div class="shop-card-body">
+        <p class="shop-card-name">Daily Glow Serum</p>
+        <p class="shop-card-desc">Brightening &amp; anti-aging face serum with hyaluronic acid &amp; mandarin. 30 ml.</p>
+        <span class="shop-card-btn">Buy Now</span>
+      </div>
+    </a>
+
+    <a href="https://whop.com/checkout/plan_64UmQgVmEcswr" target="_blank" rel="noopener" class="shop-card">
+      <img src="assets/products/radiance-facial-oil.jpg" alt="Radiance Renewal Facial Oil" class="shop-card-image">
+      <div class="shop-card-body">
+        <p class="shop-card-name">Radiance Renewal Facial Oil</p>
+        <p class="shop-card-desc">Anti-aging facial oil with argan, jojoba &amp; rosehip oil, Vitamin C. 30 ml.</p>
+        <span class="shop-card-btn">Buy Now</span>
+      </div>
+    </a>
+
+    <a href="https://whop.com/checkout/plan_ED8DnZFAA5uCU" target="_blank" rel="noopener" class="shop-card">
+      <img src="assets/products/botanical-eye-serum.jpg" alt="Botanical Hydro-Active Eye Serum" class="shop-card-image">
+      <div class="shop-card-body">
+        <p class="shop-card-name">Botanical Hydro-Active Eye Serum</p>
+        <p class="shop-card-desc">Anti-wrinkle eye serum with hyaluronic acid &amp; alfalfa extract. 15 ml.</p>
+        <span class="shop-card-btn">Buy Now</span>
+      </div>
+    </a>
+
+    <a href="https://whop.com/checkout/plan_VrrNk7bSR9Fwm" target="_blank" rel="noopener" class="shop-card">
+      <img src="assets/products/eye-repair-cream.jpg" alt="Bakuchiol Eye Repair Cream" class="shop-card-image">
+      <div class="shop-card-body">
+        <p class="shop-card-name">Bakuchiol Eye Repair Cream</p>
+        <p class="shop-card-desc">Restorative eye cream with bakuchiol, squalane, ceramides &amp; caffeine. 30 ml.</p>
+        <span class="shop-card-btn">Buy Now</span>
+      </div>
+    </a>
+
+    <a href="https://whop.com/checkout/plan_gEAEZxoPBuYSV" target="_blank" rel="noopener" class="shop-card">
+      <img src="assets/products/anti-ageing-eye-serum-oil.jpg" alt="Anti-Ageing Eye Serum Oil" class="shop-card-image">
+      <div class="shop-card-body">
+        <p class="shop-card-name">Anti-Ageing Eye Serum Oil</p>
+        <p class="shop-card-desc">Eye treatment oil with jojoba, squalane, argan oil &amp; Vitamin K. 30 ml.</p>
+        <span class="shop-card-btn">Buy Now</span>
+      </div>
+    </a>
+
+    <a href="https://whop.com/checkout/plan_9m95lAitVONsR" target="_blank" rel="noopener" class="shop-card bundle">
+      <img src="assets/products/complete-set.jpg" alt="Complete Ritual Set — All 6 Products" class="shop-card-image">
+      <div class="shop-card-body">
+        <p class="shop-card-name">Complete Ritual Set</p>
+        <p class="shop-card-desc">All 6 products together — the full face &amp; eye ritual, at a better price.</p>
+        <span class="shop-card-btn">Buy Now</span>
+      </div>
+    </a>
+
+  </div>
+</section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
